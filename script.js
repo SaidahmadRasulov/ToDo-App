@@ -14,27 +14,31 @@ function handleAdd() {
         localStorage.setItem('data', JSON.stringify(todos));
         input.value = '';
         renderTasks();
-    }
+    };
+    input.focus()
 }
 
 function renderTasks() {
     wrapp.innerHTML = '';
-    todos.forEach((item, index) => {
-        const checkboxClass = item.completed ? 'bx bx-check-circle checked' : 'circle_div';
-        const taskClass = item.completed ? 'completed' : 'title';
-
-        const taskHTML = `
-            <div class='flex'>
-                <div class='title_box'>
-                <i class='${checkboxClass}' onclick='changeBoolean(${index})'></i>
-                <h1 class='${taskClass}' onclick='changeBoolean(${index})'>${item.task}</h1>
+    if(todos.length > 0) {
+        todos.forEach((item, index) => {
+            const checkboxClass = item.completed ? 'bx bx-check-circle checked' : 'circle_div';
+            const taskClass = item.completed ? 'completed' : 'title';
+            const taskHTML = `
+                <div class='flex'>
+                    <div class='title_box'>
+                    <i class='${checkboxClass}' onclick='changeBoolean(${index})'></i>
+                    <h1 class='${taskClass}' onclick='changeBoolean(${index})'>${item.task}</h1>
+                    </div>
+                    <i class='bx bx-trash' onclick='handleDelete(${item.id})'></i>
                 </div>
-                <i class='bx bx-trash' onclick='handleDelete(${item.id})'></i>
-            </div>
-        `;
-
-        wrapp.innerHTML += taskHTML;
-    });
+            `;
+    
+            wrapp.innerHTML += taskHTML;
+        });
+    } else {
+        wrapp.innerHTML = '<h1 class="title_not">Not Date</h1>'
+    }
 }
 
 function changeBoolean(index) {

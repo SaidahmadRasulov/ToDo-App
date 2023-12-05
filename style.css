@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: .5rem;
+    background-color: #737373;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #76B7CD;
+    border-radius: 20px;
+}
+
 header {
     padding: 2rem 0;
     background-color: #F1ECE6;
@@ -50,6 +61,7 @@ header img {
     cursor: pointer;
     border: 1px solid #76B7CD;
     z-index: 99;
+    transition: all .3s ease-in-out;
 }
 
 .content__input button:hover {
@@ -68,6 +80,7 @@ header img {
     background-color: #F1ECE6;
     border-radius: 20px;
     padding: 1rem;
+    overflow-y: scroll;
 }
 
 .checkbox {
@@ -82,10 +95,12 @@ header img {
     border: 1px solid #737373;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
 }
 .checked {
     font-size: 1.5rem;
     color: #D98326;
+    cursor: pointer;
 }
 
 .completed {
@@ -93,11 +108,18 @@ header img {
     color: #C2C2C2;
     font-weight: 400;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .title {
     font-weight: 400;
     font-size: 2rem;
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+}
+
+.title:hover {
+    color: #D98326;
 }
 
 .title_box {
@@ -118,4 +140,16 @@ header img {
 .bx-trash {
     font-size: 1.3rem;
     color: #b30a049e;
+    cursor: pointer;
+    padding: .5rem;
+    border-radius: .4rem;
+    transition: all .3s ease-in-out;
+}
+
+.bx-trash:hover {
+    background-color: white;
+}
+
+.title_not {
+    text-align: center;
 }
